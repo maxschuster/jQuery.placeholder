@@ -1,3 +1,18 @@
+/*
+ * Copyright 2012 Max Schuster 
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 (function($) {
     if ($.support.placeholder === undefined) {
         var i = document.createElement('input');
@@ -15,16 +30,20 @@
                         borrowSize: true,
                         borrowPadding: true,
                         borrowMargin: true,
-                        color: '#bbb'
+                        color: '#ccc'
                 };
 
                 $.extend(settings, options);
-
+                
                 if ($.support.placeholder === true && !settings.force) {
                     return;
                 }
 
                 var data = $this.data('placeholder');
+                
+                if (data) {
+                    $this.placeholder('destroy');
+                }
 
                 var placeholder = $this.attr('placeholder');
 
@@ -89,14 +108,15 @@
 
                 var $this = $(this),
                         data = $this.data('placeholder');
-
-                // Namespacing FTW
-                $this.off('.placeholder');
-                data.fake.off('.placeholder').remove();
-                if (data.placeholder)
-                    $this.attr('placeholder', data.placeholder);
-                $this.removeData('placeholder');
-                $this.show();
+                if (data) {
+                    // Namespacing FTW
+                    $this.off('.placeholder');
+                    data.fake.off('.placeholder').remove();
+                    if (data.placeholder)
+                        $this.attr('placeholder', data.placeholder);
+                    $this.removeData('placeholder');
+                    $this.show();
+                }
             });
 
         }
