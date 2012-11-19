@@ -7,7 +7,7 @@ Counterfeit support for placeholder<br /><br />
 
 * <a href="#methods">Methods</a>
 * <a href="#settings">Settings</a>
-* <a href="#style_classes">Style Classes</a>
+* <a href="#style-classes">Style Classes</a>
 
 # Methods
 
