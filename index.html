@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery.placeholder - Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+        <script src="jquery.placeholder.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('input, textarea').placeholder({force:true});
+                $('#destroy').click(function(){
+                    $('.placeholder').placeholder('destroy');
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <input type="text" placeholder="This Input is empty" value="" />
+        </div>
+        <div>
+            <input type="text" placeholder="Now it's empty ;-)" value="This Input is not empty" />
+        </div>
+        <div>
+            <input type="password" placeholder="Password empty" value="" />
+        </div>
+        <div>
+            <input type="password" placeholder="Password prefilled" value="Password" />
+        </div>
+        <div>
+            <textarea placeholder="This Textarea is empty"></textarea>
+        </div>
+        <div>
+            <textarea placeholder="Now it's empty ;-)">This Textarea is not empty</textarea>
+        </div>
+        <div>
+            <input type="button" value="Destroy placeholders" id="destroy" />
+        </div>
+    </body>
+</html>
