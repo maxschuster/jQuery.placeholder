@@ -31,7 +31,7 @@
                         borrowPadding: true,
                         borrowMargin: true,
                         color: '#ccc'
-                };
+                }, tagName = this.nodeName.toLowerCase();
 
                 $.extend(settings, options);
                 
@@ -51,8 +51,13 @@
                     return;
                 }
 
-                var fake = $('<' + this.nodeName.toLowerCase() + ' />');
-
+                var fake = $('<' + tagName + ' />');
+                if (tagName === 'input') {
+                    fake.attr('type', 'text');
+                }
+                if (settings.borrowClasses) {
+                    fake.addClass($this.attr('class'));
+                }
                 fake.addClass('placeholder-fake').val(placeholder);
                 if (settings.color)
                     fake.css('color', settings.color);
